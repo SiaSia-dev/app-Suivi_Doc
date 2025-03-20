@@ -34,10 +34,6 @@ Un système de gestion documentaire simple et intuitif développé en Python ave
 - Gestion des fichiers physiques
 - Rapports et analyses avancées
 
-## Dépannage
-- Assurez-vous que Python et Streamlit sont correctement installés
-- Vérifiez que tous les fichiers sont dans le même répertoire
-- En cas d'erreur, recréez l'environnement virtuel
 
 ## Licence
  MIT
