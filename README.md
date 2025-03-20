@@ -35,10 +35,6 @@ Choix d'une approche par dataframe statique pour faciliter l'hébergement sur St
 - Gestion des fichiers physiques
 - Rapports et analyses avancées
 
-## Dépannage
-- Assurez-vous que Python et Streamlit sont correctement installés
-- Vérifiez que tous les fichiers sont dans le même répertoire
-- En cas d'erreur, recréez l'environnement virtuel
 
 ## Licence
  MIT
