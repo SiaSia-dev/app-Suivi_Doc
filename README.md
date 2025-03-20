@@ -1,7 +1,7 @@
 # Application de Suivi Documentaire
 
 ## Description
-Un système de gestion documentaire simple et intuitif développé en Python avec Streamlit et SQLite.
+Un système de gestion documentaire simple et intuitif développé en Python avec Streamlit.
 Choix d'une approche par dataframe statique pour faciliter l'hébergement sur Streamlit mais possible avec SQLite
 
 ## Fonctionnalités
