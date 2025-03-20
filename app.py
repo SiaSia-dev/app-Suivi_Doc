@@ -1,65 +1,175 @@
 import streamlit as st
-import sqlite3
+import pandas as pd
 import plotly.express as px
 import plotly.graph_objs as go
-import pandas as pd
-from datetime import datetime
+import random
+from datetime import datetime, timezone
 
-def adapt_datetime(val):
+@st.cache_data
+def load_documents():
     """
-    Convertit un objet datetime en chaîne ISO formatée
+    Charge les documents depuis le CSV
     """
-    return val.isoformat()
+    import csv
+    
+    documents = []
+    with open('sample_documents.csv', 'r', encoding='utf-8') as file:
+        csv_reader = csv.DictReader(file)
+        
+        upload_date = datetime.now(timezone.utc)
 
-def convert_datetime(val):
-    """
-    Convertit une chaîne ISO en objet datetime
-    """
-    return datetime.fromisoformat(val.decode())
+        for row in csv_reader:
+            # Générer des tags et un statut
+            generated_tags = generate_tags(row['category'], row['description'])
+            category_status = assign_category_status(row['category'])
+            
+            documents.append({
+                'filename': row['filename'],
+                'filepath': row['filepath'],
+                'upload_date': upload_date,
+                'category': row['category'],
+                'tags': generated_tags,
+                'description': row['description'],
+                'status': category_status
+            })
+    
+    return pd.DataFrame(documents)
 
-# Enregistrer les adaptateurs personnalisés
-sqlite3.register_adapter(datetime, adapt_datetime)
-sqlite3.register_converter('DATETIME', convert_datetime)
+def generate_tags(category, description):
+    """
+    Génère des tags basés sur la catégorie et la description
+    """
+    # Dictionnaire de tags par catégorie
+    CATEGORY_TAGS = {
+        'Administratif': [
+            'administration', 'gestion', 'rapport', 'officiel', 
+            'document_interne', 'conformité', 'archivage', 
+            'politique', 'réglementation', 'procédure'
+        ],
+        'Projet': [
+            'innovation', 'développement', 'stratégie', 'planification', 
+            'R&D', 'client', 'proposition', 'cahier_des_charges', 
+            'prototype', 'amélioration', 'objectifs'
+        ],
+        'Personnel': [
+            'RH', 'recrutement', 'evaluation', 'competences', 
+            'developpement_personnel', 'formation', 'integration', 
+            'carriere', 'motivation', 'ressources_humaines'
+        ]
+    }
+
+    # Commencer avec les tags de base de la catégorie
+    tags = set(random.sample(CATEGORY_TAGS.get(category, []), 3))
+    
+    # Mots-clés additionnels basés sur la description
+    description_keywords = {
+        'financier': ['finances', 'comptabilité', 'budget'],
+        'stratégie': ['strategie', 'direction', 'management'],
+        'maintenance': ['infrastructure', 'technique', 'systeme'],
+        'client': ['satisfaction', 'relation_client', 'service'],
+        'innovation': ['R&D', 'technologie', 'recherche'],
+        'évaluation': ['performance', 'competences', 'developpement']
+    }
+    
+    # Ajouter des tags basés sur la description
+    for keyword, related_tags in description_keywords.items():
+        if keyword in description.lower():
+            tags.update(random.sample(related_tags, min(2, len(related_tags))))
+    
+    # Ajouter l'année si présente dans la description
+    years = [str(year) for year in range(2020, 2025)]
+    for year in years:
+        if year in description:
+            tags.add(year)
+    
+    # Ajouter des tags spécifiques à la catégorie
+    if category == 'Administratif':
+        if 'finances' in description.lower():
+            tags.update(['comptabilité', 'budget'])
+        if 'maintenance' in description.lower():
+            tags.update(['technique', 'infrastructure'])
+    
+    elif category == 'Projet':
+        if 'innovation' in description.lower():
+            tags.update(['R&D', 'développement'])
+        if 'client' in description.lower():
+            tags.update(['satisfaction', 'relation_client'])
+    
+    elif category == 'Personnel':
+        if 'recrutement' in description.lower():
+            tags.update(['CV', 'competences'])
+        if 'formation' in description.lower():
+            tags.update(['developpement', 'integration'])
+    
+    # Limiter à 5 tags uniques
+    unique_tags = list(tags)[:5]
+    
+    return ','.join(unique_tags)
+
+def assign_category_status(category):
+    """
+    Génère un statut basé sur la catégorie pour une distribution plus réaliste
+    """
+    status_distribution = {
+        'Administratif': ['Actif', 'Actif', 'Archivé', 'Supprimé'],
+        'Projet': ['Actif', 'Actif', 'Actif', 'Archivé', 'Supprimé'],
+        'Personnel': ['Actif', 'Archivé', 'Archivé', 'Supprimé']
+    }
+    return random.choice(status_distribution.get(category, ['Actif', 'Archivé', 'Supprimé']))
 
 def get_documents_dataframe(search_category=None, search_tags=None):
     """
     Récupère les documents sous forme de DataFrame avec filtres optionnels
     """
-    conn = sqlite3.connect('document_tracking.db', detect_types=sqlite3.PARSE_DECLTYPES)
+    df = load_documents()
     
-    # Construction de la requête dynamique
-    query = "SELECT * FROM documents WHERE 1=1"
-    params = []
-    
+    # Filtres
     if search_category:
-        query += " AND category = ?"
-        params.append(search_category)
+        df = df[df['category'] == search_category]
     
     if search_tags:
-        query += " AND tags LIKE ?"
-        params.append(f"%{search_tags}%")
+        df = df[df['tags'].str.contains(search_tags, case=False, na=False)]
     
-    # Exécuter la requête
-    if params:
-        df = pd.read_sql_query(query, conn, params=params)
-    else:
-        df = pd.read_sql_query(query, conn)
-    
-    conn.close()
     return df
 
-def create_category_pie_chart(df):
+def add_document(filename, filepath, category, tags, description):
     """
-    Crée un graphique à secteurs pour les catégories de documents
+    Ajoute un nouveau document (simulé dans un DataFrame en mémoire)
     """
-    if df.empty:
-        return None
+    # Charger les documents existants
+    documents_df = load_documents()
     
+    # Générer les tags et le statut
+    generated_tags = generate_tags(category, description)
+    category_status = assign_category_status(category)
+    
+    # Créer une nouvelle entrée
+    new_document = pd.DataFrame({
+        'filename': [filename],
+        'filepath': [filepath],
+        'upload_date': [datetime.now(timezone.utc)],
+        'category': [category],
+        'tags': [generated_tags],
+        'description': [description],
+        'status': [category_status]
+    })
+    
+    # Concaténer avec les documents existants
+    updated_documents = pd.concat([documents_df, new_document], ignore_index=True)
+    
+    return updated_documents
+
+def create_category_donut_chart(df):
+    """
+    Crée un graphique en donut pour les catégories
+    """
     category_counts = df['category'].value_counts()
+    
     fig = px.pie(
         values=category_counts.values, 
         names=category_counts.index, 
         title='Répartition des Documents par Catégorie',
+        hole=0.3,  # Crée un effet donut
         color_discrete_sequence=px.colors.qualitative.Pastel
     )
     fig.update_traces(textposition='inside', textinfo='percent+label')
@@ -67,12 +177,10 @@ def create_category_pie_chart(df):
 
 def create_status_bar_chart(df):
     """
-    Crée un graphique à barres pour les statuts des documents
+    Crée un graphique à barres pour les statuts
     """
-    if df.empty:
-        return None
-    
     status_counts = df['status'].value_counts()
+    
     fig = px.bar(
         x=status_counts.index, 
         y=status_counts.values, 
@@ -83,52 +191,41 @@ def create_status_bar_chart(df):
     )
     return fig
 
-def create_tags_wordcloud(df):
+def create_tags_bar_chart(df):
     """
-    Crée un graphique de distribution des tags
+    Crée un graphique à barres pour les tags les plus fréquents
+    avec une gestion améliorée des tags
     """
-    if df.empty:
-        return None
+    # Séparer et compter les tags
+    # Utiliser str.split avec expand=True pour gérer correctement les virgules
+    all_tags = df['tags'].str.split(',', expand=True).stack()
     
-    all_tags = df['tags'].str.split(',').explode()
-    tag_counts = all_tags.str.strip().value_counts()
+    # Nettoyer les tags (supprimer les espaces, convertir en minuscules)
+    all_tags = all_tags.str.strip().str.lower()
     
-    fig = go.Figure(data=[go.Bar(
-        x=tag_counts.index, 
-        y=tag_counts.values,
-        marker_color=px.colors.qualitative.Pastel
-    )])
+    # Compter les occurrences de tags
+    tag_counts = all_tags.value_counts()
+    
+    # Filtrer pour n'afficher que les tags les plus pertinents (top 10)
+    top_tags = tag_counts.head(10)
+    
+    # Créer le graphique avec Plotly
+    fig = px.bar(
+        x=top_tags.index, 
+        y=top_tags.values,
+        title='Top 10 des Tags',
+        labels={'x': 'Tags', 'y': 'Fréquence'},
+        color=top_tags.index,  # Colorer par tag
+        color_discrete_sequence=px.colors.qualitative.Pastel
+    )
+    
+    # Personnaliser la mise en page
     fig.update_layout(
-        title='Distribution des Tags',
         xaxis_title='Tags',
-        yaxis_title='Fréquence',
-        xaxis_tickangle=-45
-    )
-    return fig
-
-def create_timeline_chart(df):
-    """
-    Crée une timeline des documents
-    """
-    if df.empty:
-        return None
-    
-    df['upload_date'] = pd.to_datetime(df['upload_date'])
-    monthly_docs = df.groupby(pd.Grouper(key='upload_date', freq='ME')).size()
-    
-    fig = go.Figure(data=[go.Scatter(
-        x=monthly_docs.index, 
-        y=monthly_docs.values,
-        mode='lines+markers',
-        line=dict(color='rgba(0, 128, 255, 0.7)'),
-        marker=dict(size=10, color='rgba(0, 128, 255, 0.7)')
-    )])
-    fig.update_layout(
-        title='Chronologie des Documents',
-        xaxis_title='Date',
         yaxis_title='Nombre de Documents',
-        template='plotly_white'
+        xaxis_tickangle=-45  # Incliner les étiquettes pour une meilleure lisibilité
     )
+    
     return fig
 
 def main():
@@ -137,8 +234,9 @@ def main():
 
     # Titre de l'application
     st.title("🗂️ Système de Suivi Documentaire")
-    # sous-title
-    st.subheader("Prototype d'application pour suivre et gérer les documents")
+    
+    # Sous-titre
+    st.markdown("### 📋 Un prototype de gestion documentaire")
 
     # Menu principal
     action = st.radio("Choisissez une action", [
@@ -150,16 +248,12 @@ def main():
     # Créer trois colonnes larges
     col_home, col_action, col_viz = st.columns([2, 1, 1])
 
-    # Variables pour stocker les filtres de recherche
-    search_category = None
-    search_tags = None
+    # Récupérer les documents
+    documents_df = get_documents_dataframe()
 
     # Colonne d'Accueil
     with col_home:
         st.header("📋 Liste des Documents")
-        
-        # Récupérer les documents (initialement tous)
-        documents_df = get_documents_dataframe()
         
         if not documents_df.empty:
             st.dataframe(documents_df, use_container_width=True)
@@ -183,20 +277,10 @@ def main():
                 if submit_button:
                     if filename and filepath:
                         try:
-                            conn = sqlite3.connect('document_tracking.db', detect_types=sqlite3.PARSE_DECLTYPES)
-                            cursor = conn.cursor()
-                            
-                            upload_date = datetime.now()
-                            
-                            cursor.execute('''
-                            INSERT INTO documents 
-                            (filename, filepath, upload_date, category, tags, description) 
-                            VALUES (?, ?, ?, ?, ?, ?)
-                            ''', (filename, filepath, upload_date, category, tags, description))
-                            
-                            conn.commit()
-                            conn.close()
-                            
+                            # Ajouter le document
+                            documents_df = add_document(
+                                filename, filepath, category, tags, description
+                            )
                             st.success("Document ajouté avec succès!")
                             st.rerun()
                         except Exception as e:
@@ -224,12 +308,8 @@ def main():
                         st.warning("Aucun document trouvé.")
 
         elif action == "Gérer les Documents":
-            conn = sqlite3.connect('document_tracking.db', detect_types=sqlite3.PARSE_DECLTYPES)
-            documents = pd.read_sql_query('SELECT * FROM documents', conn)
-            conn.close()
-            
-            for _, doc in documents.iterrows():
-                with st.expander(f"ID: {doc['id']} - {doc['filename']}"):
+            for _, doc in documents_df.iterrows():
+                with st.expander(f"ID: {doc.name} - {doc['filename']}"):
                     col1, col2 = st.columns(2)
                     
                     with col1:
@@ -237,31 +317,21 @@ def main():
                         st.write(f"**Chemin:** {doc['filepath']}")
                         st.write(f"**Catégorie:** {doc['category']}")
                         st.write(f"**Tags:** {doc['tags']}")
-                        st.write(f"**Description:** {doc['description'] or 'Aucune description'}")
+                        st.write(f"**Description:** {doc['description']}")
                     
                     with col2:
-                        st.write(f"**Date d'ajout:** {pd.to_datetime(doc['upload_date']).strftime('%Y-%m-%d %H:%M:%S')}")
+                        st.write(f"**Date d'ajout:** {doc['upload_date'].strftime('%Y-%m-%d %H:%M:%S')}")
                         
                         new_status = st.selectbox(
                             "Statut", 
                             ["Actif", "Archivé", "Supprimé"], 
-                            key=f"status_{doc['id']}",
+                            key=f"status_{doc.name}",
                             index=["Actif", "Archivé", "Supprimé"].index(doc['status'])
                         )
                         
-                        if st.button(f"Mettre à jour", key=f"update_{doc['id']}"):
-                            conn = sqlite3.connect('document_tracking.db', detect_types=sqlite3.PARSE_DECLTYPES)
-                            cursor = conn.cursor()
-                            
-                            cursor.execute('''
-                            UPDATE documents 
-                            SET status = ? 
-                            WHERE id = ?
-                            ''', (new_status, doc['id']))
-                            
-                            conn.commit()
-                            conn.close()
-                            
+                        if st.button(f"Mettre à jour", key=f"update_{doc.name}"):
+                            # Mettre à jour le statut du document
+                            documents_df.loc[doc.name, 'status'] = new_status
                             st.success(f"Statut de {doc['filename']} mis à jour à {new_status}")
                             st.rerun()
 
@@ -270,40 +340,26 @@ def main():
         st.header("📊 Visualisations")
         
         # Créer des onglets pour différentes visualisations
-        tab1, tab2, tab3, tab4 = st.tabs([
+        tab1, tab2, tab3 = st.tabs([
             "Catégories", 
             "Statuts", 
-            "Tags",
-            "Chronologie"
+            "Tags"
         ])
 
         with tab1:
-            fig_cat = create_category_pie_chart(documents_df)
-            if fig_cat:
-                st.plotly_chart(fig_cat, use_container_width=True)
-            else:
-                st.info("Aucune donnée pour la visualisation")
+            # Graphique des catégories (Donut Chart)
+            fig_categories = create_category_donut_chart(documents_df)
+            st.plotly_chart(fig_categories, use_container_width=True)
 
         with tab2:
+            # Graphique des statuts
             fig_status = create_status_bar_chart(documents_df)
-            if fig_status:
-                st.plotly_chart(fig_status, use_container_width=True)
-            else:
-                st.info("Aucune donnée pour la visualisation")
+            st.plotly_chart(fig_status, use_container_width=True)
 
         with tab3:
-            fig_tags = create_tags_wordcloud(documents_df)
-            if fig_tags:
-                st.plotly_chart(fig_tags, use_container_width=True)
-            else:
-                st.info("Aucune donnée pour la visualisation")
-
-        with tab4:
-            fig_timeline = create_timeline_chart(documents_df)
-            if fig_timeline:
-                st.plotly_chart(fig_timeline, use_container_width=True)
-            else:
-                st.info("Aucune donnée pour la visualisation")
+            # Distribution des tags
+            fig_tags = create_tags_bar_chart(documents_df)
+            st.plotly_chart(fig_tags, use_container_width=True)
 
 if __name__ == "__main__":
     main()

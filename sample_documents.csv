@@ -1,33 +1,35 @@
-filename,filepath,category,description
-rapport_financier_2023.pdf,/documents/finances/rapport_financier_2023.pdf,Administratif,Rapport financier détaillé de l'année 2023
-rapport_financier_2022.pdf,/documents/archives/rapport_financier_2022.pdf,Administratif,Rapport financier de l'année précédente
-bilan_comptable_q1.xlsx,/documents/comptabilite/bilan_comptable_q1.xlsx,Administratif,Bilan comptable du premier trimestre
-bilan_comptable_q2.xlsx,/documents/comptabilite/bilan_comptable_q2.xlsx,Administratif,Bilan comptable du deuxième trimestre
-bilan_comptable_q3.xlsx,/documents/comptabilite/bilan_comptable_q3.xlsx,Administratif,Bilan comptable du troisième trimestre
-rapport_tresorerie.pdf,/documents/finances/rapport_tresorerie.pdf,Administratif,Rapport détaillé de la trésorerie
-analyse_risques_financiers.pdf,/documents/finances/analyse_risques.pdf,Administratif,Analyse des risques financiers
-budget_previsionnel_2024.xlsx,/documents/finances/budget_2024.xlsx,Administratif,Projection budgétaire pour l'année 2024
-politique_entreprise.pdf,/documents/administratif/politique_entreprise.pdf,Administratif,Document de politique générale de l'entreprise
-rapport_maintenance_serveurs.pdf,/documents/informatique/rapport_maintenance_serveurs.pdf,Administratif,Rapport mensuel de maintenance des infrastructures serveurs
-rapport_securite_systeme.pdf,/documents/informatique/rapport_securite.pdf,Administratif,Rapport de sécurité des systèmes informatiques
-politique_cybersecurite.pdf,/documents/informatique/politique_cybersecurite.pdf,Administratif,Politique de cybersécurité de l'entreprise
-note_de_frais_janvier.xlsx,/documents/comptabilite/note_de_frais_janvier.xlsx,Administratif,Détail des notes de frais pour le mois de janvier
-note_de_frais_fevrier.xlsx,/documents/comptabilite/note_de_frais_fevrier.xlsx,Administratif,Détail des notes de frais pour le mois de février
-contrat_client_acme.docx,/documents/contrats/contrat_client_acme.docx,Projet,Contrat de service avec le client Acme Corporation
-contrat_client_xyz.docx,/documents/contrats/contrat_client_xyz.docx,Projet,Contrat de service avec le client XYZ Corporation
-cahier_charges_projet_x.docx,/documents/projets/cahier_charges_projet_x.docx,Projet,Description détaillée du cahier des charges pour le projet X
-cahier_charges_projet_y.docx,/documents/projets/cahier_charges_projet_y.docx,Projet,Description détaillée du cahier des charges pour le projet Y
-proposition_projet_innovation.pptx,/documents/projets/proposition_projet_innovation.pptx,Projet,Présentation du projet d'innovation
-proposition_projet_digitalization.pptx,/documents/projets/proposition_digitalization.pptx,Projet,Proposition de digitalisation des processus
-prototype_nouveau_produit.pdf,/documents/projets/prototype_nouveau_produit.pdf,Projet,Documentation technique du prototype
-prototype_amelioration.pdf,/documents/projets/prototype_amelioration.pdf,Projet,Documentation technique d'amélioration du produit
-rapport_satisfaction_client.pdf,/documents/marketing/rapport_satisfaction_client.pdf,Projet,Analyse de la satisfaction des clients
-rapport_etude_marche.pdf,/documents/marketing/etude_marche.pdf,Projet,Étude complète du marché et des tendances
-cv_jean_dupont.pdf,/documents/rh/cv_jean_dupont.pdf,Personnel,Curriculum vitae de Jean Dupont pour le poste de développeur
-cv_marie_martin.pdf,/documents/rh/cv_marie_martin.pdf,Personnel,Curriculum vitae de Marie Martin pour le poste de designer
-fiche_poste_developpeur.docx,/documents/rh/fiche_poste_developpeur.docx,Personnel,Détails du poste de développeur
-fiche_poste_designer.docx,/documents/rh/fiche_poste_designer.docx,Personnel,Détails du poste de designer
-rapport_evaluation_annuelle.pdf,/documents/rh/rapport_evaluation_annuelle.pdf,Personnel,Rapport d'évaluation annuel des employés
-rapport_climat_social.pdf,/documents/rh/climat_social.pdf,Personnel,Analyse du climat social dans l'entreprise
-guide_onboarding.pdf,/documents/rh/guide_onboarding.pdf,Personnel,Guide d'accueil et d'intégration des nouveaux employés
-politique_formation.pdf,/documents/rh/politique_formation.pdf,Personnel,Politique de formation et développement des compétences
+filename,filepath,category,tags,description
+rapport_financier_2023.pdf,/documents/finances/rapport_financier_2023.pdf,Administratif,"finances,rapport annuel","Rapport financier détaillé de l'année 2023"
+rapport_financier_2022.pdf,/documents/archives/rapport_financier_2022.pdf,Administratif,"finances,historique","Rapport financier de l'année précédente"
+bilan_comptable_q1.xlsx,/documents/comptabilite/bilan_comptable_q1.xlsx,Administratif,"comptabilité,bilan","Bilan comptable du premier trimestre"
+contrat_client_acme.docx,/documents/contrats/contrat_client_acme.docx,Projet,"contrat,client,acme","Contrat de service avec le client Acme Corporation"
+cahier_charges_projet_x.docx,/documents/projets/cahier_charges_projet_x.docx,Projet,"projet x,cahier des charges","Description détaillée du cahier des charges pour le projet X"
+proposition_projet_innovation.pptx,/documents/projets/proposition_projet_innovation.pptx,Projet,"innovation,présentation","Présentation du projet d'innovation"
+prototype_nouveau_produit.pdf,/documents/projets/prototype_nouveau_produit.pdf,Projet,"R&D,prototype","Documentation technique du prototype"
+cv_jean_dupont.pdf,/documents/rh/cv_jean_dupont.pdf,Personnel,"cv,recrutement","Curriculum vitae de Jean Dupont pour le poste de développeur"
+fiche_poste_developpeur.docx,/documents/rh/fiche_poste_developpeur.docx,Personnel,"recrutement,description de poste","Détails du poste de développeur"
+rapport_evaluation_annuelle.pdf,/documents/rh/rapport_evaluation_annuelle.pdf,Personnel,"évaluation,ressources humaines","Rapport d'évaluation annuel des employés"
+politique_entreprise.pdf,/documents/administratif/politique_entreprise.pdf,Administratif,"gouvernance,réglement","Document de politique générale de l'entreprise"
+rapport_maintenance_serveurs.pdf,/documents/informatique/rapport_maintenance_serveurs.pdf,Administratif,"serveurs,maintenance,informatique","Rapport mensuel de maintenance des infrastructures serveurs"
+note_de_frais_janvier.xlsx,/documents/comptabilite/note_de_frais_janvier.xlsx,Administratif,"comptabilité,notes de frais","Détail des notes de frais pour le mois de janvier"
+presentation_strategie_2024.pptx,/documents/direction/presentation_strategie_2024.pptx,Projet,"stratégie,présentation,2024","Présentation de la stratégie d'entreprise pour l'année 2024"
+rapport_satisfaction_client.pdf,/documents/marketing/rapport_satisfaction_client.pdf,Projet,"marketing,clients,satisfaction","Analyse de la satisfaction des clients"
+guide_onboarding.pdf,/documents/rh/guide_onboarding.pdf,Personnel,"intégration,nouveaux employés","Guide d'accueil et d'intégration des nouveaux employés"
+politique_cybersecurite.pdf,/documents/informatique/politique_cybersecurite.pdf,Administratif,"sécurité,informatique,politique","Politique de cybersécurité de l'entreprise"
+bilan_comptable_q2.xlsx,/documents/comptabilite/bilan_comptable_q2.xlsx,Administratif,"comptabilité,bilan","Bilan comptable du deuxième trimestre"
+rapport_recherche_marche.pdf,/documents/marketing/rapport_recherche_marche.pdf,Projet,"marketing,étude,marché","Étude de marché pour le lancement du nouveau produit"
+contrat_fournisseur_tech.docx,/documents/contrats/contrat_fournisseur_tech.docx,Administratif,"contrat,fournisseur,approvisionnement","Contrat avec le fournisseur de matériel technique"
+cv_marie_martin.pdf,/documents/rh/cv_marie_martin.pdf,Personnel,"cv,recrutement","Curriculum vitae de Marie Martin pour le poste de chef de projet"
+plan_communication_2024.pptx,/documents/marketing/plan_communication_2024.pptx,Projet,"communication,plan,marketing","Plan de communication pour l'année 2024"
+audit_securite_annuel.pdf,/documents/informatique/audit_securite_annuel.pdf,Administratif,"audit,sécurité,conformité","Rapport d'audit de sécurité informatique annuel"
+note_de_frais_fevrier.xlsx,/documents/comptabilite/note_de_frais_fevrier.xlsx,Administratif,"comptabilité,notes de frais","Détail des notes de frais pour le mois de février"
+manuel_utilisateur_logiciel.pdf,/documents/informatique/manuel_utilisateur_logiciel.pdf,Projet,"documentation,logiciel,utilisateur","Manuel d'utilisation du logiciel interne"
+rapport_activite_q1.pdf,/documents/direction/rapport_activite_q1.pdf,Administratif,"rapport,activité,trimestre","Rapport d'activité du premier trimestre"
+plan_formation_equipe.docx,/documents/rh/plan_formation_equipe.docx,Personnel,"formation,développement,compétences","Plan de formation pour l'équipe technique"
+roadmap_produit_2024.xlsx,/documents/projets/roadmap_produit_2024.xlsx,Projet,"roadmap,planning,produit","Feuille de route du développement produit pour 2024"
+inventaire_materiel_informatique.xlsx,/documents/informatique/inventaire_materiel_informatique.xlsx,Administratif,"inventaire,matériel,assets","Inventaire complet du matériel informatique"
+etude_faisabilite_projet_y.pdf,/documents/projets/etude_faisabilite_projet_y.pdf,Projet,"étude,faisabilité,projet y","Analyse de faisabilité pour le projet Y"
+contrat_partenariat_stratégique.docx,/documents/contrats/contrat_partenariat_stratégique.docx,Projet,"partenariat,stratégie,contrat","Accord de partenariat stratégique avec l'entreprise XYZ"
+fiche_poste_marketing.docx,/documents/rh/fiche_poste_marketing.docx,Personnel,"recrutement,description de poste,marketing","Description du poste de responsable marketing"
+bilan_social_2023.pdf,/documents/rh/bilan_social_2023.pdf,Personnel,"bilan,social,statistiques","Bilan social de l'entreprise pour l'année 2023"
+procédure_sauvegarde_données.pdf,/documents/informatique/procédure_sauvegarde_données.pdf,Administratif,"sauvegarde,données,procédure","Procédure de sauvegarde et de récupération des données"
