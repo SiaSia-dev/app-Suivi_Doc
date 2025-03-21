@@ -1,33 +1,33 @@
-filename,filepath,category,description
-rapport_financier_2023.pdf,/documents/finances/rapport_financier_2023.pdf,Administratif,Rapport financier détaillé de l'année 2023
-rapport_financier_2022.pdf,/documents/archives/rapport_financier_2022.pdf,Administratif,Rapport financier de l'année précédente
-bilan_comptable_q1.xlsx,/documents/comptabilite/bilan_comptable_q1.xlsx,Administratif,Bilan comptable du premier trimestre
-bilan_comptable_q2.xlsx,/documents/comptabilite/bilan_comptable_q2.xlsx,Administratif,Bilan comptable du deuxième trimestre
-bilan_comptable_q3.xlsx,/documents/comptabilite/bilan_comptable_q3.xlsx,Administratif,Bilan comptable du troisième trimestre
-rapport_tresorerie.pdf,/documents/finances/rapport_tresorerie.pdf,Administratif,Rapport détaillé de la trésorerie
-analyse_risques_financiers.pdf,/documents/finances/analyse_risques.pdf,Administratif,Analyse des risques financiers
-budget_previsionnel_2024.xlsx,/documents/finances/budget_2024.xlsx,Administratif,Projection budgétaire pour l'année 2024
-politique_entreprise.pdf,/documents/administratif/politique_entreprise.pdf,Administratif,Document de politique générale de l'entreprise
-rapport_maintenance_serveurs.pdf,/documents/informatique/rapport_maintenance_serveurs.pdf,Administratif,Rapport mensuel de maintenance des infrastructures serveurs
-rapport_securite_systeme.pdf,/documents/informatique/rapport_securite.pdf,Administratif,Rapport de sécurité des systèmes informatiques
-politique_cybersecurite.pdf,/documents/informatique/politique_cybersecurite.pdf,Administratif,Politique de cybersécurité de l'entreprise
-note_de_frais_janvier.xlsx,/documents/comptabilite/note_de_frais_janvier.xlsx,Administratif,Détail des notes de frais pour le mois de janvier
-note_de_frais_fevrier.xlsx,/documents/comptabilite/note_de_frais_fevrier.xlsx,Administratif,Détail des notes de frais pour le mois de février
-contrat_client_acme.docx,/documents/contrats/contrat_client_acme.docx,Projet,Contrat de service avec le client Acme Corporation
-contrat_client_xyz.docx,/documents/contrats/contrat_client_xyz.docx,Projet,Contrat de service avec le client XYZ Corporation
-cahier_charges_projet_x.docx,/documents/projets/cahier_charges_projet_x.docx,Projet,Description détaillée du cahier des charges pour le projet X
-cahier_charges_projet_y.docx,/documents/projets/cahier_charges_projet_y.docx,Projet,Description détaillée du cahier des charges pour le projet Y
-proposition_projet_innovation.pptx,/documents/projets/proposition_projet_innovation.pptx,Projet,Présentation du projet d'innovation
-proposition_projet_digitalization.pptx,/documents/projets/proposition_digitalization.pptx,Projet,Proposition de digitalisation des processus
-prototype_nouveau_produit.pdf,/documents/projets/prototype_nouveau_produit.pdf,Projet,Documentation technique du prototype
-prototype_amelioration.pdf,/documents/projets/prototype_amelioration.pdf,Projet,Documentation technique d'amélioration du produit
-rapport_satisfaction_client.pdf,/documents/marketing/rapport_satisfaction_client.pdf,Projet,Analyse de la satisfaction des clients
-rapport_etude_marche.pdf,/documents/marketing/etude_marche.pdf,Projet,Étude complète du marché et des tendances
-cv_jean_dupont.pdf,/documents/rh/cv_jean_dupont.pdf,Personnel,Curriculum vitae de Jean Dupont pour le poste de développeur
-cv_marie_martin.pdf,/documents/rh/cv_marie_martin.pdf,Personnel,Curriculum vitae de Marie Martin pour le poste de designer
-fiche_poste_developpeur.docx,/documents/rh/fiche_poste_developpeur.docx,Personnel,Détails du poste de développeur
-fiche_poste_designer.docx,/documents/rh/fiche_poste_designer.docx,Personnel,Détails du poste de designer
-rapport_evaluation_annuelle.pdf,/documents/rh/rapport_evaluation_annuelle.pdf,Personnel,Rapport d'évaluation annuel des employés
-rapport_climat_social.pdf,/documents/rh/climat_social.pdf,Personnel,Analyse du climat social dans l'entreprise
-guide_onboarding.pdf,/documents/rh/guide_onboarding.pdf,Personnel,Guide d'accueil et d'intégration des nouveaux employés
-politique_formation.pdf,/documents/rh/politique_formation.pdf,Personnel,Politique de formation et développement des compétences
+filename,filepath,category,description,upload_date,tags,status
+rapport_financier_2023.pdf,/documents/finances/rapport_financier_2023.pdf,Administratif,Rapport financier détaillé de l'année 2023,2024-11-13 10:12:08,"budget,comptabilité,procédure,archivage,gestion",Actif
+rapport_financier_2022.pdf,/documents/archives/rapport_financier_2022.pdf,Administratif,Rapport financier de l'année précédente,2025-01-27 10:12:08,"conformité,officiel,politique,comptabilité,finances",Archivé
+bilan_comptable_q1.xlsx,/documents/comptabilite/bilan_comptable_q1.xlsx,Administratif,Bilan comptable du premier trimestre,2024-11-14 10:12:08,"officiel,document_interne,rapport",Archivé
+bilan_comptable_q2.xlsx,/documents/comptabilite/bilan_comptable_q2.xlsx,Administratif,Bilan comptable du deuxième trimestre,2025-01-06 10:12:08,"archivage,gestion,réglementation",Actif
+bilan_comptable_q3.xlsx,/documents/comptabilite/bilan_comptable_q3.xlsx,Administratif,Bilan comptable du troisième trimestre,2024-12-27 10:12:08,"gestion,officiel,procédure",Archivé
+rapport_tresorerie.pdf,/documents/finances/rapport_tresorerie.pdf,Administratif,Rapport détaillé de la trésorerie,2025-02-06 10:12:08,"procédure,document_interne,réglementation",Archivé
+analyse_risques_financiers.pdf,/documents/finances/analyse_risques.pdf,Administratif,Analyse des risques financiers,2024-12-21 10:12:08,"officiel,comptabilité,finances,archivage,rapport",Actif
+budget_previsionnel_2024.xlsx,/documents/finances/budget_2024.xlsx,Administratif,Projection budgétaire pour l'année 2024,2024-12-31 10:12:08,"officiel,2024,procédure,document_interne",Supprimé
+politique_entreprise.pdf,/documents/administratif/politique_entreprise.pdf,Administratif,Document de politique générale de l'entreprise,2025-01-29 10:12:08,"archivage,rapport,politique",Supprimé
+rapport_maintenance_serveurs.pdf,/documents/informatique/rapport_maintenance_serveurs.pdf,Administratif,Rapport mensuel de maintenance des infrastructures serveurs,2024-11-21 10:12:08,"technique,politique,infrastructure,procédure,archivage",Actif
+rapport_securite_systeme.pdf,/documents/informatique/rapport_securite.pdf,Administratif,Rapport de sécurité des systèmes informatiques,2025-03-19 10:12:08,"réglementation,document_interne,conformité",Actif
+politique_cybersecurite.pdf,/documents/informatique/politique_cybersecurite.pdf,Administratif,Politique de cybersécurité de l'entreprise,2024-11-24 10:12:08,"archivage,politique,réglementation",Archivé
+note_de_frais_janvier.xlsx,/documents/comptabilite/note_de_frais_janvier.xlsx,Administratif,Détail des notes de frais pour le mois de janvier,2025-03-12 10:12:08,"archivage,officiel,rapport",Supprimé
+note_de_frais_fevrier.xlsx,/documents/comptabilite/note_de_frais_fevrier.xlsx,Administratif,Détail des notes de frais pour le mois de février,2025-02-03 10:12:08,"archivage,rapport,conformité",Actif
+contrat_client_acme.docx,/documents/contrats/contrat_client_acme.docx,Projet,Contrat de service avec le client Acme Corporation,2024-10-27 10:12:08,"satisfaction,développement,relation_client,prototype,proposition",Archivé
+contrat_client_xyz.docx,/documents/contrats/contrat_client_xyz.docx,Projet,Contrat de service avec le client XYZ Corporation,2024-10-04 10:12:08,"satisfaction,innovation,relation_client,service,stratégie",Actif
+cahier_charges_projet_x.docx,/documents/projets/cahier_charges_projet_x.docx,Projet,Description détaillée du cahier des charges pour le projet X,2024-11-20 10:12:08,"stratégie,innovation,amélioration",Archivé
+cahier_charges_projet_y.docx,/documents/projets/cahier_charges_projet_y.docx,Projet,Description détaillée du cahier des charges pour le projet Y,2024-10-28 10:12:08,"développement,prototype,stratégie",Supprimé
+proposition_projet_innovation.pptx,/documents/projets/proposition_projet_innovation.pptx,Projet,Présentation du projet d'innovation,2025-01-29 10:12:08,"cahier_des_charges,développement,recherche,R&D,client",Archivé
+proposition_projet_digitalization.pptx,/documents/projets/proposition_digitalization.pptx,Projet,Proposition de digitalisation des processus,2025-01-05 10:12:08,"client,objectifs,prototype",Actif
+prototype_nouveau_produit.pdf,/documents/projets/prototype_nouveau_produit.pdf,Projet,Documentation technique du prototype,2024-11-30 10:12:08,"amélioration,client,objectifs",Supprimé
+prototype_amelioration.pdf,/documents/projets/prototype_amelioration.pdf,Projet,Documentation technique d'amélioration du produit,2024-10-02 10:12:08,"développement,proposition,stratégie",Supprimé
+rapport_satisfaction_client.pdf,/documents/marketing/rapport_satisfaction_client.pdf,Projet,Analyse de la satisfaction des clients,2025-01-31 10:12:08,"satisfaction,innovation,cahier_des_charges,objectifs,relation_client",Actif
+rapport_etude_marche.pdf,/documents/marketing/etude_marche.pdf,Projet,Étude complète du marché et des tendances,2024-10-19 10:12:08,"stratégie,objectifs,prototype",Archivé
+cv_jean_dupont.pdf,/documents/rh/cv_jean_dupont.pdf,Personnel,Curriculum vitae de Jean Dupont pour le poste de développeur,2025-03-13 10:12:08,"competences,carriere,motivation",Actif
+cv_marie_martin.pdf,/documents/rh/cv_marie_martin.pdf,Personnel,Curriculum vitae de Marie Martin pour le poste de designer,2024-12-23 10:12:08,"competences,carriere,integration",Archivé
+fiche_poste_developpeur.docx,/documents/rh/fiche_poste_developpeur.docx,Personnel,Détails du poste de développeur,2024-11-08 10:12:08,"competences,integration,RH",Archivé
+fiche_poste_designer.docx,/documents/rh/fiche_poste_designer.docx,Personnel,Détails du poste de designer,2025-03-08 10:12:08,"competences,formation,integration",Actif
+rapport_evaluation_annuelle.pdf,/documents/rh/rapport_evaluation_annuelle.pdf,Personnel,Rapport d'évaluation annuel des employés,2024-12-12 10:12:08,"motivation,performance,evaluation,formation,developpement",Archivé
+rapport_climat_social.pdf,/documents/rh/climat_social.pdf,Personnel,Analyse du climat social dans l'entreprise,2024-11-06 10:12:08,"competences,integration,developpement_personnel",Supprimé
+guide_onboarding.pdf,/documents/rh/guide_onboarding.pdf,Personnel,Guide d'accueil et d'intégration des nouveaux employés,2025-01-25 10:12:08,"recrutement,integration,ressources_humaines",Archivé
+politique_formation.pdf,/documents/rh/politique_formation.pdf,Personnel,Politique de formation et développement des compétences,2025-01-09 10:12:08,"recrutement,carriere,integration,developpement",Supprimé

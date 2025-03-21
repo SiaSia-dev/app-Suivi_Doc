@@ -35,6 +35,5 @@ Choix d'une approche par dataframe statique pour faciliter l'hébergement sur St
 - Gestion des fichiers physiques
 - Rapports et analyses avancées
 
-
 ## Licence
  MIT
